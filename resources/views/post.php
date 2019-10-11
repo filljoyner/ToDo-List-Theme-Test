@@ -1,0 +1,1 @@
+<?php partial('post/content'); ?>
