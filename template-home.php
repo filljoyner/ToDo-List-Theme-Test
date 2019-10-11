@@ -3,4 +3,4 @@
 Template Name: Home Page
 */
 
-render('home');
+view('home');

@@ -1,3 +1,3 @@
 <?php
 
-render('page');
+view('page');

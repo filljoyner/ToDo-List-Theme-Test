@@ -1,1 +1,1 @@
-<?php partial('post/content'); ?>
+<?php visual()->partial('post/content')->render(); ?>

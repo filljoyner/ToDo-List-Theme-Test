@@ -1,4 +1,5 @@
 <?php
+
 /** Require WPM */
 require_once __DIR__ . '/_wpm/wpm.php';
 

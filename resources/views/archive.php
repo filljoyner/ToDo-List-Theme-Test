@@ -1,1 +1,1 @@
-<?php partial('post/loop'); ?>
+<?php visual()->partial('post/loop')->render(); ?>
