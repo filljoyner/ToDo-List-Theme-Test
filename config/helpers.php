@@ -39,18 +39,13 @@ function redirect($url)
 
 
 /**
- * Sets up post data so that the_* and get_* wordpress functions
- * will use the provided or global post outside of "the_loop"
+ * Return the theme's img directory
  *
- * @params $post
- * @return void
+ * @return String
  */
-function set_post($post = null)
+function img_src($file)
 {
-    if (!$post) {
-        global $post;
-    }
-    setup_postdata($post);
+    return theme_url() . '/assets/img/' . $file;
 }
 
 
@@ -73,17 +68,6 @@ function theme_url()
 function theme_dir()
 {
     return get_template_directory();
-}
-
-
-/**
- * Return the theme's img directory
- *
- * @return String
- */
-function img_src($file)
-{
-    return theme_url() . '/assets/img/' . $file;
 }
 
 
@@ -112,7 +96,7 @@ function packages_dir()
 /**
  * Load a package
  *
- * @param $path
+ * @param $package_name
  */
 function package($package_name)
 {
@@ -120,46 +104,23 @@ function package($package_name)
 }
 
 
-function render($view, $data=[], $layout='master')
+/**
+ * Get repository directory
+ *
+ * @return string
+ */
+function repository_dir()
 {
-    layout($layout, [
-        'data' => $data,
-        'content' => function() use ($view, $data) {
-            set_post();
-            view($view, $data);
-        }
-    ]);
-}
-
-
-function layout($layout, $data)
-{
-    extract($data);
-    include resources_dir() . '/views/layouts/' . $layout . '.php';
+    return theme_dir() . '/resources/repositories';
 }
 
 
 /**
- * Call in a partial file with default directory routing
+ * Load repository
  *
- * @param $path
- * @param array $data
+ * @param $repository
  */
-function view($path, $data=[])
+function repository($repository)
 {
-    extract($data);
-    include resources_dir() . '/views/' . $path . '.php';
-}
-
-
-/**
- * Call in a partial file with default directory routing
- *
- * @param $path
- * @param null $file
- */
-function partial($path, $data=[])
-{
-    extract($data);
-    include resources_dir() . '/views/partials/' . $path . '.php';
+    require_once repository_dir() . '/' . $repository . '.php';
 }

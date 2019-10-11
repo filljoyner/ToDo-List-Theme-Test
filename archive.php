@@ -1,3 +1,3 @@
 <?php
 
-render('archive');
+view('archive');
