@@ -4,6 +4,18 @@
  * Helper Functions
  * -----------------------------------------------------------
  */
+
+/**
+ * Checks if a given string is json
+ * @param $string
+ * @return bool
+ */
+function is_json($string) {
+    json_decode($string);
+    return (json_last_error() == JSON_ERROR_NONE);
+}
+
+
 /**
  * Useful if swapping out all nav calls. If bootstrap 3 or 4 is in
  * use, use the bootstrap nav menu call. If not, use wordpress
