@@ -2,7 +2,9 @@
 
 collect([
     'Render',
-    'Visual'
+    'Visual',
+    'ToDoListRequest',
+    'ToDoList'
 ])->each(function($repository) {
     repository($repository);
 });
@@ -48,3 +50,12 @@ function partial($partial, $data=[])
 }
 
 
+function todo_list_requests($post)
+{
+    return new \Repositories\ToDoListRequest($post);
+}
+
+function todo_list($todo_list=null)
+{
+    return new \Repositories\ToDoList($todo_list);
+}
