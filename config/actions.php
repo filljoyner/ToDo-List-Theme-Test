@@ -9,6 +9,7 @@ wpm('wp.action')->add('wp_enqueue_scripts', function () {
     wp_enqueue_script('site', theme_url() . '/assets/js/site.js', ['jquery'], '', true);
 
     // styles
+    wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.11.2/css/all.css', '', '', 'all');
     wp_enqueue_style('site', theme_url() . '/assets/css/site.css', '', '', 'all');
 });
 
