@@ -13,7 +13,7 @@ package('wp-force-login');
 package('bootstrap4');
 
 
-/** Type and Action Routing */
+/** Type and Action Requests */
 if(!empty($_GET['type']) and !empty($_GET['action']) and get_current_user_id() and !is_admin()) {
     $type = $_GET['type'];
     $action = $_GET['action'];
